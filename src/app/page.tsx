@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center p-8 sm:p-20 font-geist">
       <h1 className="text-3xl font-bold mb-6">F1 Driver Standings 2025</h1>
-      <Table className="w-full max-w-4xl border border-gray-200 rounded-lg shadow-md">
+      <Table className="w-[75%] border border-gray-200 rounded-lg shadow-md">
         <TableHeader>
           <TableRow className="bg-gray-100">
             <TableHead className="w-16 text-center">Pos</TableHead>
