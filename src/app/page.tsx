@@ -37,30 +37,32 @@ export default function Home() {
   if (error) return <div className="text-red-500 text-center p-6">Error: {error}</div>;
 
   return (
-    <div className="min-h-screen flex flex-col items-center p-8 sm:p-20 font-geist">
-      <h1 className="text-3xl font-bold mb-6">F1 Driver Standings 2025</h1>
-      <Table className="w-[75%] border border-gray-200 rounded-lg shadow-md">
-        <TableHeader>
-          <TableRow className="bg-gray-100">
-            <TableHead className="w-16 text-center">Pos</TableHead>
-            <TableHead>Name</TableHead>
-            <TableHead>Nationality</TableHead>
-            <TableHead>Team</TableHead>
-            <TableHead className="text-right">Points</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {driverStanding.map((driver) => (
-            <TableRow key={driver.position}>
-              <TableCell className="text-center">{driver.position}</TableCell>
-              <TableCell>{driver.name}</TableCell>
-              <TableCell>{driver.nationality}</TableCell>
-              <TableCell>{driver.team}</TableCell>
-              <TableCell className="text-right font-bold">{driver.points}</TableCell>
+    <div className="min-h-screen flex flex-col items-center font-geist p-4">
+      <h1 className="text-3xl font-bold mb-6 text-center">F1 Driver Standings 2025</h1>
+      <div className="w-full max-w-4xl overflow-x-auto">
+        <Table className="w-full border border-gray-200 rounded-lg shadow-md">
+          <TableHeader>
+            <TableRow className="bg-gray-100">
+              <TableHead className="w-16 text-center">Pos</TableHead>
+              <TableHead>Name</TableHead>
+              <TableHead>Nationality</TableHead>
+              <TableHead>Team</TableHead>
+              <TableHead className="text-right">Points</TableHead>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHeader>
+          <TableBody>
+            {driverStanding.map((driver) => (
+              <TableRow key={driver.position}>
+                <TableCell className="text-center">{driver.position}</TableCell>
+                <TableCell>{driver.name}</TableCell>
+                <TableCell>{driver.nationality}</TableCell>
+                <TableCell>{driver.team}</TableCell>
+                <TableCell className="text-right font-bold">{driver.points}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
     </div>
   );
 }
