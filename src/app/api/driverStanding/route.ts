@@ -5,7 +5,7 @@ export async function GET() {
     const browser = await puppeteer.launch({
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
       //@ts-ignore
-      headless: "new",
+      headless: "true",
     });
     const page = await browser.newPage();
     await page.goto("https://www.formula1.com/en/results/2025/drivers", { waitUntil: "domcontentloaded", timeout: 0 });
