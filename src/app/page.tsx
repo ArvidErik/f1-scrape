@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <div className="min-h-screen w-full flex flex-col items-center font-geist p-4">
       <h1 className="text-3xl font-bold mb-6 text-center">F1 Driver Standings 2025</h1>
-      <div className="w-[75%]">
+      <div className="w-[100%] md:w-[50%] flex flex-col gap-4">
         {driverStanding.map((driver) => (
             <StandingCard key={driver.position} driver={driver} />
         ))}
