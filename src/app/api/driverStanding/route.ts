@@ -3,6 +3,9 @@ import puppeteer from 'puppeteer-core';
 
 export async function GET() {
   try {
+
+    const isLocal = !!process.env.CHROME_EXECUTABLE_PATH;
+
     const browser = await puppeteer.launch({
       //@ts-ignore
       args: isLocal ? puppeteer.defaultArgs() : chromium.args,
