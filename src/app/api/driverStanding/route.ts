@@ -4,9 +4,10 @@ import chromium from "chrome-aws-lambda";
 export async function GET() {
   try {
     const browser = await puppeteer.launch({
-      args: chromium.args,
-      executablePath: await chromium.executablePath,
-      headless: chromium.headless,
+      executablePath: "/usr/bin/chromium-browser",
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      //@ts-ignore
+      headless: "new",
     });
 
     const page = await browser.newPage();
