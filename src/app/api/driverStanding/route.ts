@@ -2,8 +2,11 @@ import puppeteer from "puppeteer";
 
 export async function GET() {
   try {
-    //@ts-ignore
-    const browser = await puppeteer.launch({ headless: "new" });
+    const browser = await puppeteer.launch({
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      //@ts-ignore
+      headless: "new",
+    });
     const page = await browser.newPage();
     await page.goto("https://www.formula1.com/en/results/2025/drivers", { waitUntil: "domcontentloaded", timeout: 0 });
   
