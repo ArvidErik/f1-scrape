@@ -34,6 +34,7 @@ export default function Home() {
   }, []);
 
   if (loading) return <div className="text-center p-6">Loading...</div>;
+  if (error) return <div className="text-red-500 text-center p-6">Error: {error}</div>;
 
   return (
     <div className="min-h-screen w-full flex flex-col items-center font-geist p-4">
