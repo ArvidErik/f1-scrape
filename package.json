@@ -10,6 +10,7 @@
     "export": "next export"
   },
   "dependencies": {
+    "cheerio": "^1.0.0",
     "chrome-aws-lambda": "^10.1.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

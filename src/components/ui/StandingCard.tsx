@@ -12,7 +12,7 @@ export default function StandingCard({ driver }: { driver: IDriverStanding }) {
         {/* Driver Info */}
         <div className="flex items-center gap-3">
           <img
-            src={`https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/${driver.name}`}
+            src={`https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/${driver.name.split(' ')[0]}`}
             alt={driver.name}
             className="h-16 w-16 rounded-full border-2 border-gray-300 shadow-sm"
           />
