@@ -1,19 +1,25 @@
-import puppeteer from "puppeteer";
+import puppeteer from "puppeteer-core";
+import chromium from "chrome-aws-lambda";
 
 export async function GET() {
   try {
-    //@ts-ignore
-    const browser = await puppeteer.launch({ headless: "new" });
+    const browser = await puppeteer.launch({
+      args: chromium.args,
+      executablePath: await chromium.executablePath,
+      headless: chromium.headless,
+    });
+
     const page = await browser.newPage();
-    await page.goto("https://www.formula1.com/en/results/2025/drivers", { waitUntil: "domcontentloaded", timeout: 0 });
-  
-    // Extract and map data into IDriverStanding format
+    await page.goto("https://www.formula1.com/en/results/2025/drivers", {
+      waitUntil: "domcontentloaded",
+      timeout: 0,
+    });
+
     const data = await page.evaluate(() => {
       const rows = document.querySelectorAll(".f1-table tbody tr");
-  
+
       return Array.from(rows).map(row => {
-        const cells = row.querySelectorAll("td p"); // Selects <p> tags inside <td>
-  
+        const cells = row.querySelectorAll("td p");
         return {
           //@ts-ignore
           position: parseInt(cells[0]?.innerText.trim() || "0"),
@@ -28,10 +34,10 @@ export async function GET() {
         };
       });
     });
-  
+
     await browser.close();
     return Response.json({ result: data });
-  } catch (error:any) {
+  } catch (error: any) {
     console.error("Error launching Puppeteer or fetching data:", error);
     return Response.json({ error: error.message });
   }
