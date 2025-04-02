@@ -27,10 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased w-[100%] pb-20`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased w-[100%]`}
       >
         <NavBar/>
-        <main className="flex-1">
+        <main className="flex-1 pb-20">
           {children}
         </main>
         <MobileNav/>

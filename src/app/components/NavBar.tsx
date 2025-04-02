@@ -6,7 +6,7 @@ export default function Sidebar() {
 
   return (
     <nav className="w-full bg-red-700 text-white p-4 flex justify-between items-center md:w-full">
-      <h2 className="text-xl font-semibold">Formula Check</h2>
+      <img src="/assets/images/logo.png" alt="" className="h-10" />
       <ul className="hidden md:flex space-x-4">
         <li>
           <Link href="/">
