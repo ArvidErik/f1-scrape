@@ -19,10 +19,15 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("https://f1-be-production.up.railway.app/api/driverStanding");
+        const res = await fetch("http://localhost:8080/api/driverStanding", {
+          method: "GET",
+          credentials: "include", // only if backend sends cookies
+          headers: {
+            "Content-Type": "application/json"
+          }})
         if (!res.ok) throw new Error("Failed to fetch data");
 
-        const { result } = await res.json();
+        const result = await res.json();
         setDriverStanding(result);
       } catch (err) {
         setError((err as Error).message);
