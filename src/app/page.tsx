@@ -18,7 +18,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/driverStanding");
+        const res = await fetch("https://f1-be-production.up.railway.app/api/driverStanding");
         if (!res.ok) throw new Error("Failed to fetch data");
 
         const { result } = await res.json();
