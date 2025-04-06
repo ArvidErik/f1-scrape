@@ -3,6 +3,7 @@ import StandingCard from "@/components/ui/StandingCard";
 import { useEffect, useState } from "react";
 
 interface IDriverStanding {
+  id: string
   position: number;
   name: string;
   nationality: string;
