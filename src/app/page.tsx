@@ -19,7 +19,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("http://localhost:8080/api/driverStanding", {
+        const res = await fetch("https://f1-be-production.up.railway.app/api/driverStanding", {
           method: "GET",
           credentials: "include", // only if backend sends cookies
           headers: {
