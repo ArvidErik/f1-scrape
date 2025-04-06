@@ -41,7 +41,7 @@ export default function Home() {
     <div className="min-h-screen w-full flex flex-col items-center font-geist p-4">
       <h1 className="my-8 md:my-16 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span className="text-transparent bg-clip-text bg-gradient-to-r to-red-600 from-sky-400">Standings</span> 2025</h1>
       <div className="w-[100%] md:w-[50%] flex flex-col gap-4">
-        {driverStanding.map((driver) => (
+        {driverStanding?.map((driver) => (
             <StandingCard key={driver.position} driver={driver} />
         ))}
       </div>
