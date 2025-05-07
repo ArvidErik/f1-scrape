@@ -19,7 +19,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("https://f1-be-production.up.railway.app/api/driverStanding", {
+        const res = await fetch("https://f1-be-1hfu.onrender.com/api/driverStanding", {
           method: "GET",
           credentials: "include", // only if backend sends cookies
           headers: {
